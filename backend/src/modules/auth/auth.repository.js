@@ -17,9 +17,9 @@ export async function createUser(data) {
     ...data,
     createdAt: new Date().toISOString()
   })
-  const doc = usuarioNuevo.get()
+  const doc = await usuarioNuevo.get()
+  console.log('@@@ doc => ', doc)
   return {
-    id: doc.id,
-    ...doc.data()
+    id: doc.id
   }
 }
